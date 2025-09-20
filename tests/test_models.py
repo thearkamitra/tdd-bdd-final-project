@@ -121,7 +121,6 @@ class TestProductModel(unittest.TestCase):
         product = ProductFactory()
         app.logger.info(product)
         product.id = None
-        previous_available = product.available
         self.assertRaises(DataValidationError, product.update)
         product.create()
         self.assertIsNotNone(product.id)

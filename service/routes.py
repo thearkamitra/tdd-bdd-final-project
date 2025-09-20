@@ -119,7 +119,7 @@ def list_products():
         app.logger.info("Find by available: %s", available)
         # create bool from string
         available_value = available.lower() in ["true", "yes", "1"]
-        products = Product.find_by_availability(available_value)        
+        products = Product.find_by_availability(available_value)
     else:
         app.logger.info("Find all")
         products = Product.all()
@@ -155,6 +155,8 @@ def get_products(product_id):
 #
 # PLACE YOUR CODE TO UPDATE A PRODUCT HERE
 #
+
+
 @app.route("/products/<int:product_id>", methods=["PUT"])
 def update_products(product_id):
     """
@@ -170,6 +172,8 @@ def update_products(product_id):
     product.id = product_id
     product.update()
     return product.serialize(), status.HTTP_200_OK
+
+
 ######################################################################
 # D E L E T E   A   P R O D U C T
 ######################################################################
